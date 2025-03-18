@@ -20,5 +20,18 @@ public class ConstructorMain {
         constructor2.showInfo();
         constructor3.showInfo();
         constructor4.showInfo();
+
+        constructor1.num = 1;
+        constructor1.name = "김일";
+
+        constructor2.name = "김이";
+
+        constructor4.num = 4;
+        System.out.println();
+        constructor1.showInfo();
+        constructor2.showInfo();
+        constructor3.showInfo();
+        constructor4.showInfo();
+
     }
 }
