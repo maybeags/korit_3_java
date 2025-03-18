@@ -9,5 +9,16 @@ public class ConstructorMain {
         // 매개변수 생성자를 통한 객체 생성
         Constructor constructor2 = new Constructor(20);
         System.out.println(constructor2.num);
+
+        // AllArgsConstructor를 이용해서 객체 생성
+        Constructor constructor3 = new Constructor(21, "김삼");
+
+        Constructor constructor4 = new Constructor("김사");
+        System.out.println(constructor4.name);
+
+        constructor1.showInfo();
+        constructor2.showInfo();
+        constructor3.showInfo();
+        constructor4.showInfo();
     }
 }
