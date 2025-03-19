@@ -47,7 +47,6 @@ public class ProductMain {
         product1.productNum = 123456;
         product1.productName = "LG엘패드";
 
-
         product2.productName = "다이소충전기";
 
         product3.productNum = 159357;
