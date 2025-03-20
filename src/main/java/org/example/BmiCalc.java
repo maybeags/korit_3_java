@@ -1,4 +1,7 @@
 package org.example;
+
+import java.util.Scanner;
+
 /*
     이하의 코드에 필요한 로직을 작성하고,
     BmiCalcMain에 적용하여 -> 여기에 객체도 생성해야하고,
@@ -37,5 +40,34 @@ public class BmiCalc {
         }
 
         return status;
+    }
+
+    public void getBmiResult() {
+        Scanner scanner = new Scanner(System.in);
+
+        double height = 0;
+        double weight = 0;
+        String status = "";
+
+        double bmi = 0;
+        System.out.print("키(cm)를 입력하세요 >>> ");
+        height = scanner.nextDouble();
+        height = height / 100;
+        System.out.print("몸무게(kg)를 입력하세요 >>> ");
+        weight = scanner.nextDouble();
+        bmi = weight / (height*height);
+        System.out.println(bmi);
+
+        if(bmi < 18.5) {
+            status = "저체중";
+        } else if (bmi < 23) {
+            status = "정상 체중";
+        } else if (bmi < 25) {
+            status = "과체중";
+        } else {
+            status = "비만";
+        }
+
+        System.out.println("당신의 BMI 지수는 " + bmi + "이고, " + status + "입니다.");
     }
 }

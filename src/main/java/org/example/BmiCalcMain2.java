@@ -27,6 +27,6 @@ public class BmiCalcMain2 {
 //        System.out.println("당신의 BMI 지수는 " + bmi + "이며 " + result + "입니다.");
 
         BmiCalc bmiCalc = new BmiCalc();
-//        bmiCalc.getBmiResult();
+        bmiCalc.getBmiResult();
     }
 }
