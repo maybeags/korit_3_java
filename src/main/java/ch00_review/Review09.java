@@ -22,6 +22,15 @@ package ch00_review;
         생성자 때와 마찬가지로 alt + ins -> Setter 선택으로 자동 생성 가능
         -> 매개변수와 argument는 서로 다른 개념이다.
 
+    2. Getter : 속성값을 조회하기 위한 method를 통칭
+        get+속성명으로 이루어져있습니다.
+        ex) getBatteryTime()
+        a. call3() 유형입니다.
+        b. main단계에서 데이터 조회시의 조작이 가능합니다.
+
+        ex) System.out.println(watch1.getButton() + "!"); // true!
+        setter와 마찬가지로 alt + ins를 통해서 작성이 가능합니다.
+
     지시 사항
         1. 기본생성자 / 이름을 필수로 갖는 매개변수 생성자를 정의할 것
         2. 모든 필드에 대해 Setter를 정의할 것
