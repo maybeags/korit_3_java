@@ -101,6 +101,7 @@ public class Review13Summary {
                 }
             }
          */
+        System.out.println(character1.getHealth() + 1);
 
     }
 }
