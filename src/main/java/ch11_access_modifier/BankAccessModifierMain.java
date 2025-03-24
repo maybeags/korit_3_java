@@ -70,5 +70,8 @@ public class BankAccessModifierMain {
         System.out.println();
         account1.showInfo();
         account2.showInfo();
+
+
+        System.out.println(account1);
     }
 }
