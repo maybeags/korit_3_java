@@ -17,11 +17,38 @@ package ch00_review;
     으로 출력될 수 있도록 하시오.
  */
 class Student {
+    // 1. 필드 선언
+    public String name;            // 외부에서 접근 가능
+    public int age;                // 외부에서 접근 가능
+    int studentId;                  // 같은 패키지에서 접근 가능
+    private String password;        // 접근 불가능
 
+    // setter 정의(필요한 것만)
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // showInfo() -> public void showInfo() {};
+    public void showInfo() {
+        System.out.println("학번 : " + studentId);
+        System.out.println("이름 : " + name);
+        System.out.println("나이 : " + age);
+    }
 }
 
 public class Review12 {
     public static void main(String[] args) {
         Student student1 = new Student();
+        // 대입가능한 이름, 나이, 학번 입력
+        student1.name = "김일";
+        student1.age = 17;
+        student1.studentId = 20250001;
+        System.out.println(student1.name);  // 외부에서 접근 가능하니까 참조 가능
+        System.out.println(student1.studentId); // 같은 패키지에 있으니까 참조 가능
+        // 비밀번호는 private이라서 입력하는게 이상과 같은 방법으로는 불가능 하다 -> setter
+
+        // setPassword를 사용한 비밀번호 입력
+        student1.setPassword("qwer1234");
+        student1.showInfo();
     }
 }
