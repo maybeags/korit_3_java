@@ -31,16 +31,16 @@ package ch00_review;
         체력 : 100
         전사이(가) 25의 힘으로 공격합니다!
         전사이(가) 경험치 10을(를) 얻었습니다!
-        전사의 체력이 회복되었습니다! 현재 체력 : 110
+        전사의 체력이 회복되었습니다! 현재 체력 : 110 -> gainExp에서 로직을 참조 가능
 
  */
 class Character {
     // 필드 선언 -> 접근 지정자는 가이드를 보고 알아서 집어넣으세요
-    String name;
-    int health;
+    public String name;
+    private int health;
     int power;
-    String skill;
-    int exp;
+    protected String skill;
+    private int exp;
 
     // 생성자
     public Character(String name, int power, String skill) {
@@ -51,18 +51,56 @@ class Character {
         this.exp = 0;
     }
 
-    // getHealth()
+    // getHealth() -> 얜 getter죠.
+    public int getHealth() {
+        return health;
+    }
 
     // attack()
+    public void attack() {
+        System.out.println(name + "이(가) " + power + "의 힘으로 공격합니다!");
+        this.gainExp(10);   //메서드 내부에서 메서드를 호출한 사례
+    }
 
-    // heal()
+    // heal() -> call1() 타입으로 작성
+    public void heal() {
+        health += 10;       // 먼저 더해줘야 밑에 반영이 되겠죠
+        System.out.println(name + "의 체력이 회복되었습니다! 현재 체력 : " + health);
+    }
 
-    // gainExp()
+    // gainExp(int amount)
+    private void gainExp(int amount) {
+        exp += amount;
+        System.out.println(name + "이(가) 경험치를 " + amount + "얻었습니다.");
+    }
 }
 
 public class Review13Summary {
     public static void main(String[] args) {
         Character character1 = new Character("전사", 25, "난무");
+
+        // name은 public이기 때문에 직접 참조할 예정
+        System.out.println("캐릭터 이름 : " + character1.name);  // 이게 첫 째줄
+        // health는 getter를 통해서 받아올 예정
+        System.out.println("현재 체력 : " + character1.getHealth());
+        character1.attack();    // attack()만 호출
+        character1.heal();
+        /*
+            전사이(가) 25의 힘으로 공격합니다!
+            전사이(가) 경험치를 10얻었습니다.    -> attack() 메서드 내에 있는 gainExp(10)이 호출
+
+            class Person{
+                private String name;
+
+                public String getName() {
+                    return name;
+                }
+
+                public void showInfo() {
+                    System.out.println("이름은 " + this.getName() + "입니다.");
+                }
+            }
+         */
 
     }
 }
