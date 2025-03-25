@@ -34,6 +34,16 @@ public class Array05 {
 //        System.out.println("평균 : " + avg);
 
         int[] scores3 = { 88, 94, 77, 100, 64, 32, 95, 82, 59 };
+        int sum2 = 0;
+        double avg2 = 0;
+        for (int i = 0 ; i < scores3.length ; i++) {
+            sum2 += scores3[i];     // 합 구하기 끝
+        }
+        System.out.println("총합 : " + sum2);
+        avg2 = (double)sum2/scores3.length;
+        System.out.println("평균 : " + avg2);
+
+        String[] grade3 = new String[scores3.length]; // 따로내겠습니다
         // 합과 평균구하기도 할거고
         // 90 이상은 A
         // 80 이상은 B
@@ -54,5 +64,51 @@ public class Array05 {
             F 학생 수 : 몇명
          */
 
+        // 풀이법 # 1 -> 5개의 학점에 해당하는 변수를 선언해서 ++
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int d = 0;
+        int f = 0;
+        for(int i = 0 ; i < scores3.length ; i++) {
+            if(scores3[i] > 89) {
+                a++;
+            } else if (scores3[i] > 79) {
+                b++;
+            } else if (scores3[i] > 69) {
+                c++;
+            } else if (scores3[i] > 59) {
+                d++;
+            } else {
+                f++;
+            }
+        }
+        System.out.println("A 학생 수 : " + a);
+        System.out.println("B 학생 수 : " + b);
+        System.out.println("C 학생 수 : " + c);
+        System.out.println("D 학생 수 : " + d);
+        System.out.println("F 학생 수 : " + f);
+
+        // 풀이법 # 2 -> 어차피 abcdf가 다 int니까 배열로 선언하겠다
+        int[] scores4 = { 0, 0, 0, 0, 0 };
+        for(int i = 0 ; i < scores3.length ; i++) {
+            if(scores3[i] > 89) {
+                scores4[0]++;
+            } else if (scores3[i] > 79) {
+                scores4[1]++;
+            } else if (scores3[i] > 69) {
+                scores4[2]++;
+            } else if (scores3[i] > 59) {
+                scores4[3]++;
+            } else {
+                scores4[4]++;
+            }
+        }
+
+        System.out.println("A 학생 수 : " + scores4[0]);
+        System.out.println("B 학생 수 : " + scores4[1]);
+        System.out.println("C 학생 수 : " + scores4[2]);
+        System.out.println("D 학생 수 : " + scores4[3]);
+        System.out.println("F 학생 수 : " + scores4[4]);
     }
 }
