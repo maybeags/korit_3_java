@@ -31,5 +31,14 @@ public class Main {
         tiger1.hunt();
         animal1.move();
 //        animal1.hunt();       // 부모 클래스가 자식 클래스의 메서드를 사용할 수는 없음
+
+        Human human1 = new Human();
+        human1.setAnimalName("안근수");
+        human1.setAnimalAge(38);
+
+        System.out.println("안녕하세요 제 이름은 " + human1.getAnimalName() + "이고, 나이는 " + human1.getAnimalAge() + "살입니다.");
+        System.out.println("내년에는 " + (human1.getAnimalAge() + 1) + "살이 됩니다.");
+        human1.move();
+        human1.read("자바의 기초");
     }
 }
