@@ -43,4 +43,9 @@ public class Tiger extends Animal { //(자식)클래스명 extends (부모)클�
         super.move();
         System.out.println("네 발로 움직입니다.");  //여기가 재정의파트
     }
+
+    // Tiger 클래스 만의 고유 메서드
+    public void hunt() {
+        System.out.println("호랑이가 사냥을 합니다.");
+    }
 }

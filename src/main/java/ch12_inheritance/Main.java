@@ -28,5 +28,8 @@ public class Main {
         System.out.println(tiger1.getAnimalName() + "은(는) 올해 " + tiger1.getAnimalAge() + "살입니다.");
 
         tiger1.move();      // super.move()일경우 -> 움직입니다 출력
+        tiger1.hunt();
+        animal1.move();
+//        animal1.hunt();       // 부모 클래스가 자식 클래스의 메서드를 사용할 수는 없음
     }
 }
