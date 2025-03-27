@@ -23,6 +23,41 @@ package ch13_abstraction.notification;
         추가되어야할 수도 있을 것 같습니다.
         서브 클래스를 작성해보시고 필요하면 슈퍼 클래스에
         추가해서 코드를 완성하도록 합시다.
+
+        validateRecipient() -> 이건 저랑 하겠습니다.
+
  */
-public class EmailNotification {
+public class EmailNotification extends NotificationSystem{
+    public EmailNotification(String sender, String recipient, String message, int priority) {
+        super(sender, recipient, message, priority);
+    }
+
+    @Override
+    public void send() {
+        /*
+        이메일 전송 중 ... 💌
+        "여기에 메시지가 출력되어야합니다"
+        이메일 전송 완료 ! 🏤
+         */
+        System.out.println("이메일 전송 중 ... 💌");
+        System.out.println(getMessage());
+        System.out.println("이메일 전송 완료 ! 🏤");
+    }
+
+    @Override
+    public void validateRecipient() {   //수신자 검증 @ 있는지를 확인
+        // recipient 데이터에 @가 있는지 확인하기 위한 조건문
+        if(!getRecipient().contains("@")) {     // String
+            System.out.println("잘못된 이메일 주소 형식입니다.");
+        } else {
+            System.out.println("이메일 주소 형식이 유효합니다.");
+        }
+    }
+
+    @Override
+    public void formatMessage() {
+        String formatted = "<p>" + getMessage() + "</p>";
+        updateMessage(formatted);        // 부모 메서드를 호출
+        System.out.println("메시지가 HTML 형식으로 포맷되었습니다.");
+    }
 }

@@ -64,6 +64,7 @@ public abstract class NotificationSystem {
     // 얘는 로직 작성해야함 1미만 5초과의 숫자는 대입이 되어서는 안됨
     public void setPriority(int priority) {
         if (priority < 1 || priority > 5) {
+            System.out.println("지정 불가능한 우선 순위입니다.");
             return;
         }
         this.priority = priority;
@@ -72,4 +73,12 @@ public abstract class NotificationSystem {
     public abstract void send();
     public abstract void validateRecipient();
     public abstract void formatMessage();
+
+    public String getRecipient() {
+        return recipient;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
