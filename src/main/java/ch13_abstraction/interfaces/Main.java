@@ -13,7 +13,7 @@ package ch13_abstraction.interfaces;
 public class Main {
     public static void main(String[] args) {
         TvRemoteController tvRemoteController = new TvRemoteController(
-                new PowerButton(), new ChannelDownButton(), new ChannelUpButton());
+                new PowerButton(), new ChannelDownButton(), new ChannelUpButton(), new VolumeDownButton());
 
         tvRemoteController.onPressedPowerButton();
         tvRemoteController.onPressedPowerButton();
@@ -21,6 +21,8 @@ public class Main {
         tvRemoteController.onDownChannelDownButton();
         tvRemoteController.onPressedChannelUpButton();
         tvRemoteController.onUpChannelUpButton();
+        tvRemoteController.onPressedVolumeDownButton();
+        tvRemoteController.onDownVolumeDownButton();
 
 
     }
