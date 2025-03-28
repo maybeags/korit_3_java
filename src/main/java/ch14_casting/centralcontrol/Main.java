@@ -7,7 +7,7 @@ public class Main {
         LED led1 = new LED();
         Mouse mouse1 = new Mouse();
 
-        CentralControl centralControl = new CentralControl(new Power[6]);
+        CentralControl centralControl = new CentralControl(new Power[7]);
 
         centralControl.addDevice(computer1);    // 업캐스팅이 암시적으로 일어남
         centralControl.addDevice(led1);
@@ -26,10 +26,11 @@ public class Main {
         // 추가된 객체 생성
         Speaker speaker1 = new Speaker();
         Tv tv1 = new Tv();
-
+        SmartPhone smartPhone = new SmartPhone();
 
         centralControl.addDevice(speaker1);
         centralControl.addDevice(tv1);
+        centralControl.addDevice(smartPhone);
 
         centralControl.powerOn();
         centralControl.powerOff();

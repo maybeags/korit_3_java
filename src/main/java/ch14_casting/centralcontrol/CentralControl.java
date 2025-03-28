@@ -100,10 +100,27 @@ public class CentralControl {
             if(device instanceof Tv) {  // 얘가 실행된다면 배열 내부의 element가 Tv 클래스로 생성되었다가 Power로 업캐스팅된 애라는 뜻
                 Tv tv = (Tv)device; // 다운캐스팅은 명시적이어야하기 때문에
                 tv.changeChannel();
-            } else if(instanceof조건식) {
+            } else if(device instanceof Mouse) {
                 //다운캐스팅
                 //다운캐스팅했으니까 고유 메서드 호출
-            } else if()
+                Mouse mouse = (Mouse)device;
+                mouse.leftClick();
+            } else if(device instanceof LED) {
+                LED led = (LED)device;
+                led.changeColor();
+            } else if(device instanceof Speaker) {
+                Speaker speaker = (Speaker) device;
+                speaker.changeEqual();
+            } else if(device instanceof Computer) {
+                Computer computer = (Computer) device;
+                computer.compute();
+            } else if(device == null) {                 // 장치가 비어있는 부분일 때 실행되는 부분
+                System.out.println("장치가 비어있습니다");
+            }
+
+            else {                                    // 아직 instanceof 연산자로 추가하지 못한 class
+                System.out.println("아직 지원하지 않는 기기입니다.");
+            }
         }
     }
 }
