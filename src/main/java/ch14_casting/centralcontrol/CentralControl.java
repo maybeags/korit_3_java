@@ -69,4 +69,41 @@ public class CentralControl {
             deviceArray[i].off();
         }
     }
+
+    // 현재 배열 내에 각 객체들이 들어가있습니다.
+    // 객체명.getClass().getSimpleName()을 활용하면 클래스 네임이 출력되는 것을 확인할 수
+    // 있습니다.
+    // deviceArray를 반복문 돌려서 몇 번 인덱스에 어떤 클래스의 객체가 있는지를 표시하는
+    // displayInfo() 메서드를 정의하시오.
+    /*
+        실행 예
+        슬롯 [ 1 ] 번 : Computer
+        슬롯 [ 2 ] 번 : LED
+        슬롯 [ 3 ] 번 : Mouse
+        슬롯 [ 4 ] 번 : Speaker
+        슬롯 [ 5 ] 번 : Tv
+        슬롯 [ 6 ] 번 : Empty
+     */
+    public void displayInfo() {
+        for(int i = 0 ; i < deviceArray.length ; i++) {
+            if(deviceArray[i] == null) {
+                System.out.println("슬롯 [ " + (i+1) + " ] 번 : Empty");
+                continue;
+            }
+            System.out.println("슬롯 [ " + (i+1) + " ] 번 : " + deviceArray[i].getClass().getSimpleName());
+        }
+    }
+
+    // 배열 내부를 돌면서 각 element의 고유 메서드를 호출하는 메서드
+    public void performSpecificMethod() {
+        for(Power device : deviceArray) {
+            if(device instanceof Tv) {  // 얘가 실행된다면 배열 내부의 element가 Tv 클래스로 생성되었다가 Power로 업캐스팅된 애라는 뜻
+                Tv tv = (Tv)device; // 다운캐스팅은 명시적이어야하기 때문에
+                tv.changeChannel();
+            } else if(instanceof조건식) {
+                //다운캐스팅
+                //다운캐스팅했으니까 고유 메서드 호출
+            } else if()
+        }
+    }
 }

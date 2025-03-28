@@ -33,5 +33,9 @@ public class Main {
 
         centralControl.powerOn();
         centralControl.powerOff();
+
+        centralControl.displayInfo();
+
+        centralControl.performSpecificMethod();
     }
 }
