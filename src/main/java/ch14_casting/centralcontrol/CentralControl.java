@@ -58,5 +58,15 @@ public class CentralControl {
         }
     }
 
-
+    public void powerOff() {
+        // 켜는 걸 완성했으니까 기본적으로 deviceArray 내에 Power[] 배열 안에 이미 객체들이 저장돼있습니다.
+        // 그러면 해야하는 건 배열 내부의 element들의 .off()를 실행시켜주는 것만 하면 됩니다.
+        for(int i = 0 ; i < deviceArray.length ; i++) {
+            if(deviceArray[i] == null) {
+                System.out.println("장치가 없어 전원을 끄지 못합니다.");
+                continue;
+            }
+            deviceArray[i].off();
+        }
+    }
 }
