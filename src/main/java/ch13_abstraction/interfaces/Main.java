@@ -48,5 +48,18 @@ public class Main {
             전원이 꺼졌습니다
          */
 
+        ACController acController = new ACController(new PowerButton(), new TempDownButton(), new TempUpButton());
+
+        System.out.println("----- 에어컨 리모컨 -----");
+        acController.onPressedPowerButton();
+        System.out.println();
+        acController.onPressedTempDownButton();
+        acController.onDownTempDownButton();
+        System.out.println();
+        acController.onPressedTempUpButton();
+        acController.onUpTempUpButton();
+        System.out.println();
+        acController.onPressedPowerButton();
+
     }
 }
