@@ -1,0 +1,62 @@
+package ch14_casting.centralcontrol;
+
+public class CentralControl {
+    // 필드 선언
+    private Power[] deviceArray;
+
+    public CentralControl(Power[] deviceArray) {
+        this.deviceArray = deviceArray;
+    }
+
+    // 전자제품들을 CentralControl의 객체의 필드인 배열에 집어넣는 메서드
+    public void addDevice(Power device) {
+        // 왜 매개변수가 Power인가를 고려할 필요
+        int emptyIndex = checkEmpty();
+        if(emptyIndex == -1) {
+            System.out.println("더 이상 장치를 연결할 수 없습니다.");
+            return;
+        }
+        deviceArray[emptyIndex] = device;
+        System.out.println(device.getClass().getSimpleName() + " 장치가 연결되었습니다.");
+    /*
+        객체명.getClass() -> 패키지 명을 포함한 클래스명이 출력되는 getter
+        객체명.getClass().getSimpleName() -> 클래스명만 출력되는 getter
+     */
+    }
+
+    // 지금 보니까 배열 개수는 정해져있는데 객체가 너무 많으면 문제 생길 것 같아서
+    // 메서드를 하나 정의하겠습니다
+    private int checkEmpty() {   // 비어있는 배열의 index 넘버를 반환
+        // 반복문을 사용하게 될겁니다 배열 내부에서 비어있는 index를 가져와야하니까
+        // 그렇다면 순서대로 작동하는 반복문 특성상 웬만하면 가장 빠른 index가
+        // return 되겠습니다.
+        for (int i = 0; i < deviceArray.length; i++) {
+            if (deviceArray[i] == null) {
+                return i;
+            }
+        }
+        return -1;
+        /*
+            Java의 index 넘버에는 음수값이 없기 때문에(python에서는 마이너스인덱스개념이 있습니다),
+            실패를 나타낼 때 -1을 쓰는 경우가 많습니다. 하지만 0과 너무 가까운 수이다 보니 -100이든지
+            아예 return 값으로 나올 수 없을만한 음수를 지정하는 경우도 있는데,
+            나중에 addDevice()메서드에 if(checkEmpty() == - 2914782)로 쓰고 싶지않으면
+            -1 쓰는게 가장 보편적입니다.
+         */
+    }
+
+    public void powerOn() {
+        // 배열 내부에 있는 element들은(Power의 서브클래스들의 인스턴스) Power를 implment했기 때문에
+        // 전부 .on()과 .off()를 공통적으로 가집니다.
+        // 그러면 배열 내부를 반복문으로 돌려서 각각 .on()을 실행시켜야하겠네요.
+        for (Power device : deviceArray) {
+            if(device == null) {
+                System.out.println("장치가 없어 전원을 켜지 않았습니다.");
+                continue;           // 다음 반복문으로 건너뛰는 명령어 / break / return;과 비교할 것
+            }
+            device.on();
+        }
+    }
+
+
+}
