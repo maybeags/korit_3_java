@@ -20,4 +20,12 @@ public class PersonLombok {
     // 걔가 포함되어 있는 매개변수 생성자를 자동으로 만들어줍니다.
 
     // 그리고 @Data로 수정했습니다 -> RequiredArgsConstructor / Getter / Setter / ToString
+
+
+    @Override
+    public String toString() {
+        return "이름 : " + name + "\n나이 : " + age;
+    }
+
+    // ch17_static 만드시고, Product.java / ProductMain.java 생성
 }
