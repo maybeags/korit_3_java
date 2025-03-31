@@ -37,5 +37,9 @@ public class ProductMain {
         Product product8 = new Product();
         System.out.println(Product.getCount());             // 정적 메서드 호출
         System.out.println(product8.getInstanceCount());    // 일반 메서드 호출
+
+        // 롬복을 사용하지 않은 getTitle()
+        System.out.println(Product.getTitle());     // 클래스명.메서드명()으로 static 메서드 호출
+        //ch08_methods에서는 왜 call1()으로 호출할 수 있었는지에 대한 답변이 필요함.
     }
 }
