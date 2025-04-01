@@ -65,11 +65,18 @@ public class StrList {
         System.out.println("역순 정렬 List " + strList);
 
         // List의 특정 element 출력 -> 꺼내야 연산이 가능하니까
-        System.out.println(strList.get(0) + " 언어");
+//        System.out.println(strList.get(0) + " 언어");
 
 
         // 그럼 전체 element를 출력하려면 -> 반복문
 
+        // 배열은 .length / List는 .size()      -> 소괄호까지 고려해서 작성하셔야합니다.
+        for (int i = 0 ; i < strList.size() ; i++) {
+            System.out.println(strList.get(i));
+        }
 
+        for(String elem : strList) {
+            System.out.println(elem);
+        }
     }
 }
