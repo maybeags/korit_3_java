@@ -14,7 +14,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Product {
+public class Product<T> {
     private String productName;
     private T productInfo;
 }
